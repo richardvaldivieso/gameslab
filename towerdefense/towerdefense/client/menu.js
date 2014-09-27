@@ -3,7 +3,7 @@ $(function(){
 	
 	var canvasWidth = 800;
   var canvasHeight = 600;
-  var level;
+  var money = 30;
     $("#menuCanvas").attr("width",canvasWidth);
   	$("#menuCanvas").attr("height",canvasHeight);
   	//access 2d context
@@ -56,14 +56,15 @@ $(function(){
     {
       var x = evt.x;
       var y = evt.y;
-
-      if (x>300 &&  x<500 && y > 150 && y<200 ) 
+      var gridX = Math.floor(x/40) *40 +20;
+      var gridY = Math.floor(y/40)*40 + 20;
+      if (x>300 &&  x<500 && y > 150 && y<200 )  
       {
       console.log("clicked play");
       context.fillStyle = 'Navy'
       context.fillRect(0,0,canvasWidth,canvasHeight);
       drawGrid();
-      drawCircle(x,y);
+      drawCircle(gridX,gridY);
       
       }
     }
@@ -75,10 +76,10 @@ $(function(){
           {
                 if ((i%2 == 0 && j%2 == 1 )|| (i%2 == 1 && j%2 == 0 )) 
               {
-                context.fillStyle = 'White'
+                context.fillStyle = '#899'
               } else
               {
-                context.fillStyle = 'black'
+                context.fillStyle = '#777'
               }
                 context.fillRect(i*40,j*40,40,40);
                 
