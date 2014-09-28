@@ -1,15 +1,20 @@
-  function drawCircle (x,y) 
+  $(function(){
+
+    var canvasWidth = 800;
+    var canvasHeight = 600;
+
+    menuCanvas.addEventListener('mousemove', GetMouseCoords);
+    menuCanvas.addEventListener('click', clicked);
+
+    var context = $('#menuCanvas')[0].getContext('2d');
+
+    function drawCircle (x,y) 
     {
       context.fillStyle = "yellow"
       context.beginPath();
       context.arc(x,y,15,0,2* Math.PI,false);
       context.fill();
     }
-
-
-    menuCanvas.addEventListener('mousemove', GetMouseCoords);
-    menuCanvas.addEventListener('click', clicked);
-    
     //function GetMouseCoords () {}
     function GetMouseCoords (evt) 
     {
@@ -25,26 +30,13 @@
       if (x>300 &&  x<500 && y > 150 && y<200 )  
       {
       console.log("clicked play");
-      context.fillStyle = 'Navy'
-      context.fillRect(0,0,canvasWidth,canvasHeight);
+  
       drawGrid();
-      drawCircle(gridX,gridY);
-      
+      drawCircle(gridX,gridY); 
       }
     }
 
-/*
-    var LaserTower =  {
-        type = "Laser Tower",
-        range = 50,
-        firingRate = 100,
-        level = this.level
-        color = this.Towercolor
-    };
-    var Towercolor = {
-
-    };
-*/
+  
     function drawGrid() 
     {
        for (var i = 0; i < canvasWidth / 40; i++) 
@@ -58,11 +50,19 @@
               {
                 context.fillStyle = '#777'
               }
-                context.fillRect(i*40,j*40,40,40);
-                
-              
-                
-          };    
+                context.fillRect(i*40,j*40,40,40)                
+          }    
              
-       };      
-    }
+       }      
+     }
+   }
+
+);
+    
+    
+
+  
+  
+
+
+    
