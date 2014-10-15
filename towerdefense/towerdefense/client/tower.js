@@ -6,6 +6,7 @@
         this.damage = damage;
         this.xpos = xpos;
         this.ypos = ypos;
+        this.bullet = new Game.Bullet(this,"black");
         this.DrawTower = function () {
             Game.context.fillStyle = this.color
             Game.context.beginPath();
