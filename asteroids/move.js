@@ -54,8 +54,13 @@ function update() {
 
     ctx.clearRect(0, 0, 300, 300);
     ctx.beginPath();
-    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.moveTo(x, y);
+    ctx.lineTo(x+10, y+0);
+    ctx.lineTo(x+5, y+10); 
+    ctx.closePath();
+    ctx.fillStyle = "rgb(78, 193, 243)";
     ctx.fill();
+
 
     setTimeout(update, 10);
 }
